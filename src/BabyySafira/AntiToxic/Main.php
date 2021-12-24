@@ -3,7 +3,7 @@
 namespace BabyySafira\AntiToxic;
 
 use pocketmine\Server;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
@@ -11,7 +11,7 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener {
 	
-	public function onEnable(){
+	public function onEnable(): void{
 		$this->getLogger()->info("Plugin Enable");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this); 
 		$this->saveResource("config.yml");
@@ -24,7 +24,7 @@ class Main extends PluginBase implements Listener {
 		$banned = $data[array_rand($data)];
 		
 		if($event->getMessage() == $banned){
-			$event->setCancelled(true);
+			$event->cancel();
 		}
 	}
 }
