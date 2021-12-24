@@ -1,4 +1,4 @@
 #AntiToxic Configuration
 #example: 
 #banned-chat: ["text1", "text2"]
-banned-chat: []
+banned-chat: [""]
